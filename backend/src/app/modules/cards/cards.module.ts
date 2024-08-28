@@ -6,6 +6,7 @@ const cardSchema = new Schema<TCards>(
     id: {
       type: String,
       required: true,
+      unique: true,
     },
     title: {
       type: String,
