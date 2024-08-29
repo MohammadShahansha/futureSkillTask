@@ -1,37 +1,27 @@
-import { useState } from "react";
-import { useEffect } from "react";
-
-const Cards = () => {
-  const [allCard, setAllCard] = useState([]);
-  useEffect(() => {
-    fetch("http://localhost:5000/cards")
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        setAllCard(data);
-      })
-      .catch((error) => console.log(error));
-  }, []);
-  console.log(allCard);
+// import { useState } from "react";
+// import { useEffect } from "react";
+const Cards = (allCard) => {
   return (
-    <div className=" mt-40">
-      <div className=" w-4/6 mx-auto  grid grid-cols-2 gap-14">
-        {allCard?.data?.map((card, index) => {
-          return (
-            <div
-              key={index}
-              className=" bg-[#f4f6f8] border border-[#e4eaf0] rounded-2xl"
-            >
-              <h2 className="text-2xl font-semibold px-5 pt-4 pb-3 text-[#4a4c4b] ">
-                {card.title}
-              </h2>
-              <hr className="bg-[#e4eaf0] font-semibold" />
-              <p className="mx-5 pt-3 pb-5 text-[#6a716c]">
-                {card.description}
-              </p>
-            </div>
-          );
-        })}
+    <div>
+      <div className=" mt-40">
+        <div className=" w-4/6 mx-auto  grid grid-cols-2 gap-24">
+          {allCard?.allCard?.data?.map((card, index) => {
+            return (
+              <div
+                key={index}
+                className=" bg-[#f4f6f8] border-2 border-[#e4eaf0] rounded-2xl h-[200px]"
+              >
+                <h2 className="text-2xl font-semibold px-5 pt-4 pb-3 text-[#4a4c4b] ">
+                  {card.title}
+                </h2>
+                <hr className="bg-[#e4eaf0] h-[2px]" />
+                <p className="mx-5 pt-3 pb-5 text-[#6a716c] text-xl">
+                  {card.description}
+                </p>
+              </div>
+            );
+          })}
+        </div>
       </div>
     </div>
   );

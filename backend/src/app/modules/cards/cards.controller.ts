@@ -13,7 +13,9 @@ const createCardIntoDB = catchAsinc(async (req, res) => {
   });
 });
 const getAllCard = catchAsinc(async (req, res) => {
-  const result = await cardService.getAllCard();
+  const query = req.query.query;
+  //   console.log(query);
+  const result = await cardService.getAllCard(query);
   sendResponse(res, {
     statusCode: httpStatus.OK,
     success: true,
