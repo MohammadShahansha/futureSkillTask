@@ -13,7 +13,7 @@ const Home = () => {
   // Fetch data whenever the search term changes
   useEffect(() => {
     if (searchTerm) {
-      fetch(`http://localhost:5000/cards?query=${searchTerm}`)
+      fetch(`https://future-skills-task.vercel.app/cards?query=${searchTerm}`)
         .then((res) => res.json())
         .then((data) => {
           // console.log(data);
@@ -21,7 +21,7 @@ const Home = () => {
         })
         .catch((err) => console.error("Error fetching data:", err));
     } else {
-      fetch("http://localhost:5000/cards")
+      fetch("https://future-skills-task.vercel.app/cards")
         .then((res) => res.json())
         .then((data) => {
           // console.log(data);

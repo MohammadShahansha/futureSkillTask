@@ -25,7 +25,6 @@ const getAllCard = catchAsinc(async (req, res) => {
 });
 const getSingleCard = catchAsinc(async (req, res) => {
   const { title } = req.params;
-
   const result = await cardService.getSingleCard(title);
   sendResponse(res, {
     statusCode: httpStatus.OK,
